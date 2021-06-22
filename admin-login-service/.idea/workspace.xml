@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/domain/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/AdminRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../court-service/src/main/java/com/nadjagv/courtservice/domain/Court.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../court-service/src/main/java/com/nadjagv/courtservice/repository/CourtRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../court-service/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/domain/PaymentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/domain/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/repository/PlayerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/domain/Timeslot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/repository/TimeslotRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../court-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../court-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../court-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../court-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
