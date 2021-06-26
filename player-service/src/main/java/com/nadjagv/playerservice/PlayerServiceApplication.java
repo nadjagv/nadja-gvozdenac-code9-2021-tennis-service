@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PlayerServiceApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(PlayerServiceApplication.class, args);
     }
@@ -19,4 +20,4 @@ public class PlayerServiceApplication {
     public String test(@RequestParam(value="name", defaultValue = "World") String name){
         return String.format("Hello player %s!", name);
     }
-}
+
