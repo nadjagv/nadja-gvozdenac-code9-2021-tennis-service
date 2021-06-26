@@ -1,4 +1,4 @@
-package com.nadjagv.timeslotservice.domain;
+package com.nadjagv.adminloginservice.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,27 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name = "timeslots")
+@Table(name = "admins")
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Timeslot {
+public class Admin {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column (unique = true)
+    private String email;
+
     @Column
-    private LocalDateTime start;
-    @Column
-    private LocalDateTime end;
-    @Column
-    private Long courtId;
-    @Column
-    private Long playerId;
+    private String password;
 }
