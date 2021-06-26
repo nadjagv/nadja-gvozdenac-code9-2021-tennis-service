@@ -1,3 +1,4 @@
+
 package com.nadjagv.playerservice;
 
 import org.springframework.boot.SpringApplication;
@@ -10,12 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PlayerServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PlayerServiceApplication.class, args);
-	}
 
-	@GetMapping("/test")
-	public String test(@RequestParam(value="name", defaultValue = "World") String name){
-		return String.format("Hello player %s!", name);
-	}
-}
+    public static void main(String[] args) {
+        SpringApplication.run(PlayerServiceApplication.class, args);
+    }
+
+    @GetMapping("/test")
+    public String test(@RequestParam(value="name", defaultValue = "World") String name){
+        return String.format("Hello player %s!", name);
+    }
+
