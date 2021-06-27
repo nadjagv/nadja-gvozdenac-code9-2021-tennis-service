@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/domain/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/dto/AdminDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/dto/AdminMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/AdminRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/util/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../court-service/src/main/java/com/nadjagv/courtservice/dto/CourtDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../court-service/src/main/java/com/nadjagv/courtservice/dto/CourtMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../court-service/src/main/java/com/nadjagv/courtservice/util/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/dto/PlayerDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/dto/PlayerMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/util/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/dto/TimeslotDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/dto/TimeslotMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/service/TimeslotService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/util/Mapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../court-service/court-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../court-service/court-service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/domain/Timeslot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/domain/Timeslot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/AdminRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -21,12 +21,12 @@ public class Timeslot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(name = "start_time")
     private LocalDateTime start;
-    @Column
+    @Column(name = "end_time")
     private LocalDateTime end;
-    @Column
+    @Column(name = "court_id")
     private Long courtId;
-    @Column
+    @Column(name = "player_id")
     private Long playerId;
 }
