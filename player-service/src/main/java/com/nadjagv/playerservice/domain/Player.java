@@ -23,17 +23,15 @@ public class Player {
     @Column
     private String email;
 
-    @Column
+    @Column(name = "first_name")
     private String firstName;
-    @Column
+    @Column(name = "last_name")
     private String lastName;
-    @Column
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column
-    private Integer totalTimeslots;
 
-    @Column
+    @Column(name = "payment_type")
     private PaymentType paymentType;
     @Column
     private Boolean paid;

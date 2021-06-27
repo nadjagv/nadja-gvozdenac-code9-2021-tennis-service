@@ -18,6 +18,8 @@ public class TimeslotService {
 
     private final TimeslotRepository timeslotRepository;
 
+    //public void delete
+
     public void reserveTimeslot(TimeslotDTO dto){
 
 

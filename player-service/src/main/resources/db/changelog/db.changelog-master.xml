@@ -15,19 +15,16 @@
             <column name="email" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="firstName" type="VARCHAR(255)">
+            <column name="first_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="lastName" type="VARCHAR(255)">
+            <column name="last_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column  name="dateOfBirth" type="DATETIME">
+            <column  name="date_of_birth" type="DATETIME">
                 <constraints nullable="false"/>
             </column>
-            <column  name="totalTimeslots" type="INT">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="paymentType" type="INT">
+            <column name="payment_type" type="INT">
                 <constraints primaryKey="true"/>
             </column>
             <column name="paid" type="BOOLEAN">

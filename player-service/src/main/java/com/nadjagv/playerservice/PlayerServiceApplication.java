@@ -16,8 +16,5 @@ public class PlayerServiceApplication {
         SpringApplication.run(PlayerServiceApplication.class, args);
     }
 
-    @GetMapping("/test")
-    public String test(@RequestParam(value="name", defaultValue = "World") String name){
-        return String.format("Hello player %s!", name);
-    }
+}
 

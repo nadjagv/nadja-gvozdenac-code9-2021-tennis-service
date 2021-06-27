@@ -22,7 +22,7 @@ public class PlayerService {
                 .orElseThrow(() -> new NotFoundException("Player not found."));
     }
 
-    List<Player> findAll() {
+    public List<Player> findAll() {
         return playerRepository.findAll();
     }
 
@@ -46,7 +46,6 @@ public class PlayerService {
                     .lastName(player.getLastName())
                     .paymentType(player.getPaymentType())
                     .paid(player.getPaid())
-                    .totalTimeslots(player.getTotalTimeslots())
                     .build();
             playerRepository.save(updated);
          } else {
@@ -59,6 +58,15 @@ public class PlayerService {
             playerRepository.deleteByEmail(email);
         } else {
             throw new AlreadyExistsException(String.format("Player with email '%s' not exists", email));
+        }
+    }
+
+    public void deletePlayerById(Long id) {
+        Player player = playerRepository.getById(id);
+        if (player != null) {
+            playerRepository.deleteById(id);
+        } else {
+            throw new AlreadyExistsException(String.format("Player with id '%d' does not exist", id));
         }
     }
 }

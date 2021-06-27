@@ -14,7 +14,6 @@ public class PlayerMapper implements Mapper<Player, PlayerDTO> {
                 .lastName(dto.getLastName())
                 .email(dto.getEmail())
                 .dateOfBirth(dto.getDateOfBirth())
-                .totalTimeslots(dto.getTotalTimeslots())
                 .paymentType(dto.getPaymentType())
                 .paid(dto.getPaid())
                 .build();
@@ -23,6 +22,14 @@ public class PlayerMapper implements Mapper<Player, PlayerDTO> {
 
     @Override
     public PlayerDTO entityToDto(Player entity) {
-        return null;
+        return PlayerDTO.builder()
+                .id(entity.getId())
+                .firstName(entity.getFirstName())
+                .lastName(entity.getLastName())
+                .email(entity.getEmail())
+                .dateOfBirth(entity.getDateOfBirth())
+                .paymentType(entity.getPaymentType())
+                .paid(entity.getPaid())
+                .build();
     }
 }

@@ -13,16 +13,13 @@ public class PlayerDTO {
 
     String email;
 
-
     String firstName;
 
     String lastName;
 
     LocalDate dateOfBirth;
 
-
-    Integer totalTimeslots;
-
     PaymentType paymentType;
+
     Boolean paid;
 }
