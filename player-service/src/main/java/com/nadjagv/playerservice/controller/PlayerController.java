@@ -1,6 +1,7 @@
 package com.nadjagv.playerservice.controller;
 
 
+import com.nadjagv.playerservice.client.PlayerClient;
 import com.nadjagv.playerservice.dto.PlayerDTO;
 import com.nadjagv.playerservice.dto.PlayerMapper;
 import com.nadjagv.playerservice.service.PlayerService;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 @RequestMapping(value = "/api/players")
 @Slf4j
 @AllArgsConstructor
-public class PlayerController {
+public class PlayerController implements PlayerClient {
 
     private final PlayerMapper playerMapper;
     private final PlayerService playerService;

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "players")
@@ -28,7 +29,7 @@ public class Player {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "date_of_birth")
-    private LocalDate dateOfBirth;
+    private Date dateOfBirth;
 
 
     @Column(name = "payment_type")

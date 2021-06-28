@@ -36,8 +36,13 @@ public class PlayerService {
     }
 
     public void updatePlayer(Player player) {
-        Player existing = playerRepository.findByEmail(player.getEmail());
+        Player existing = playerRepository.getById(player.getId());
         if (existing!= null) {
+            Player byEmail = playerRepository.findByEmail(player.getEmail());
+            if (byEmail.getId() != existing.getId()){
+                throw new AlreadyExistsException(String.format("Player with email '%s' already exists", player.getEmail()));
+
+            }
             Player updated = Player.builder()
                     .id(existing.getId())
                     .email(player.getEmail())
@@ -49,7 +54,7 @@ public class PlayerService {
                     .build();
             playerRepository.save(updated);
          } else {
-            throw new AlreadyExistsException(String.format("Player with email '%s' already exists", player.getEmail()));
+            throw new NotFoundException(String.format("Player not in database.", player.getEmail()));
         }
     }
 

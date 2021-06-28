@@ -1,10 +1,21 @@
 package com.nadjagv.timeslotservice.service;
 
+import com.nadjagv.courtservice.client.CourtClient;
+import com.nadjagv.courtservice.dto.CourtDTO;
+import com.nadjagv.playerservice.client.PlayerClient;
+import com.nadjagv.playerservice.domain.Player;
+import com.nadjagv.playerservice.dto.PlayerDTO;
 import com.nadjagv.timeslotservice.domain.Timeslot;
 import com.nadjagv.timeslotservice.dto.TimeslotDTO;
+import com.nadjagv.timeslotservice.exception.AlreadyExistsException;
 import com.nadjagv.timeslotservice.exception.InvalidTimeslotDateTimeException;
+import com.nadjagv.timeslotservice.exception.NotFoundException;
 import com.nadjagv.timeslotservice.exception.PlayerAlreadyReservedException;
 import com.nadjagv.timeslotservice.repository.TimeslotRepository;
+
+import feign.Feign;
+import feign.gson.GsonDecoder;
+import feign.gson.GsonEncoder;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,40 +28,112 @@ import java.util.concurrent.TimeUnit;
 public class TimeslotService {
 
     private final TimeslotRepository timeslotRepository;
+    private final PlayerClient playerClient = Feign.builder()
+            .encoder(new GsonEncoder())
+            .decoder(new GsonDecoder())
+            .target(PlayerClient.class, "http://localhost:8081");
 
-    //public void delete
+    private final CourtClient courtClient = Feign.builder()
+            .encoder(new GsonEncoder())
+            .decoder(new GsonDecoder())
+            .target(CourtClient.class, "http://localhost:8080");
 
-    public void reserveTimeslot(TimeslotDTO dto){
 
+    public Timeslot findTimeslotById(Long id){
+        return timeslotRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Timeslot not found."));
+    }
+
+    public List<Timeslot> findAll(){
+        return timeslotRepository.findAll();
+    }
+
+    public void updateTimeslot(Timeslot timeslot) {
+        Timeslot existing = timeslotRepository.getById(timeslot.getId());
+        if (existing != null) {
+
+            checkPlayer(timeslot);
+            //check date in the future, start before end
+            checkDateValidity(timeslot);
+            //check timeslot duration
+            checkTimeslotDuration(timeslot);
+            //check if overlaps with another timeslot on the court
+            checkTimeslotsOverlap(timeslot);
+            //check if timeslot is in working hours
+            checkWorkingHours(timeslot);
+
+            Timeslot updated = Timeslot.builder()
+                    .id(existing.getId())
+                    .courtId(timeslot.getCourtId())
+                    .playerId(timeslot.getPlayerId())
+                    .end(timeslot.getEnd())
+                    .start(timeslot.getStart())
+                    .build();
+            timeslotRepository.save(updated);
+        } else {
+            throw new NotFoundException(String.format("Cannot update timeslot that is not in database."));
+        }
+    }
+
+    public void deleteTimeslotById(Long id) {
+        Timeslot existing = timeslotRepository.getById(id);
+        if (existing != null) {
+            timeslotRepository.deleteById(id);
+        } else {
+            throw new NotFoundException(String.format("Timeslot with id %d does not exist.", id));
+        }
+    }
+
+
+    public void reserveTimeslot(Timeslot timeslot){
 
         //preuzmi igraca preko player service
+//        PlayerDTO player = playerClient.getOne((long) timeslot.getPlayerId());
+//        System.out.println(player.getFirstName() + "---------------------------------");
+
+        List<PlayerDTO> allPlayers = playerClient.getAll();
+        PlayerDTO player =  allPlayers.stream()
+                .filter(p -> p.getId() == timeslot.getPlayerId())
+                .findFirst()
+                .orElse(null);
+        if(player == null){
+            throw new NotFoundException(String.format("Player does not exist."));
+        }
+
+        List<CourtDTO> allCourts = courtClient.getAll();
+        CourtDTO court =  allCourts.stream()
+                .filter(c -> c.getId() == timeslot.getCourtId())
+                .findFirst()
+                .orElse(null);
+        if(court == null){
+            throw new NotFoundException(String.format("Court does not exist."));
+        }
+
 
         //check player in the day
-        checkPlayer(dto);
+        checkPlayer(timeslot);
         //check date in the future, start before end
-        checkDateValidity(dto);
+        checkDateValidity(timeslot);
         //check timeslot duration
-        checkTimeslotDuration(dto);
+        checkTimeslotDuration(timeslot);
         //check if overlaps with another timeslot on the court
-        checkTimeslotsOverlap(dto);
+        checkTimeslotsOverlap(timeslot);
         //check if timeslot is in working hours
-        checkWorkingHours(dto);
+        checkWorkingHours(timeslot);
         //check start and end date
         Timeslot newTimeslot = Timeslot.builder()
-                .courtId(dto.getCourtId())
-                .playerId(dto.getPlayerId())
-                .start(dto.getStart())
-                .end(dto.getEnd())
+                .courtId(timeslot.getCourtId())
+                .playerId(timeslot.getPlayerId())
+                .start(timeslot.getStart())
+                .end(timeslot.getEnd())
                 .build();
         timeslotRepository.save(newTimeslot);
-
-
-
     }
-    public void checkPlayer(TimeslotDTO dto){
-        List<Timeslot> playersTimeslots = timeslotRepository.findAllByPlayerId(dto.getPlayerId());
-        playersTimeslots.stream().forEach(timeslot ->{
-            if (timeslot.getStart().toLocalDate().isEqual(dto.getStart().toLocalDate())){
+
+    public void checkPlayer(Timeslot timeslot){
+        List<Timeslot> playersTimeslots = timeslotRepository.findAllByPlayerId(timeslot.getPlayerId());
+        playersTimeslots.stream().forEach(ts ->{
+            if (ts.getStart().toLocalDate().isEqual(timeslot.getStart().toLocalDate())){
                 throw new PlayerAlreadyReservedException
                         (String.format("Player already has a reservation for chosen day."));
 
@@ -58,8 +141,8 @@ public class TimeslotService {
         });
     }
 
-    public void checkTimeslotDuration(TimeslotDTO dto){
-        long duration = getDateTimeDiff(dto.getStart(), dto.getEnd(), TimeUnit.MINUTES);
+    public void checkTimeslotDuration(Timeslot timeslot){
+        long duration = getDateTimeDiff(timeslot.getStart(), timeslot.getEnd(), TimeUnit.MINUTES);
 
         if (duration < 30) {
             throw new InvalidTimeslotDateTimeException
@@ -70,22 +153,22 @@ public class TimeslotService {
         }
     }
 
-    public void checkDateValidity(TimeslotDTO dto){
-        if (dto.getStart().isBefore(LocalDateTime.now())){
+    public void checkDateValidity(Timeslot timeslot){
+        if (timeslot.getStart().isBefore(LocalDateTime.now())){
             throw new InvalidTimeslotDateTimeException
                     (String.format("Timeslot must be in the future, but it's start is in the past."));
 
         }
-        if (dto.getStart().isAfter(dto.getEnd())){
+        if (timeslot.getStart().isAfter(timeslot.getEnd())){
             throw new InvalidTimeslotDateTimeException
                     (String.format("Chosen end time for timeslot is before the chosen start time."));
 
         }
     }
 
-    public void checkTimeslotsOverlap(TimeslotDTO dto){
-        List<Timeslot> overlappingTimeslots = timeslotRepository.findAllTimeslotsByCourtAndTimeOverlap(dto.getCourtId(),
-                dto.getStart(), dto.getEnd());
+    public void checkTimeslotsOverlap(Timeslot timeslot){
+        List<Timeslot> overlappingTimeslots = timeslotRepository.findAllTimeslotsByCourtAndTimeOverlap(timeslot.getCourtId(),
+                timeslot.getStart(), timeslot.getEnd());
         if(!overlappingTimeslots.isEmpty()){
             throw new InvalidTimeslotDateTimeException
                     (String.format("Timeslot is overlapping with another timeslot."));
@@ -93,8 +176,8 @@ public class TimeslotService {
         }
     }
 
-    public void checkWorkingHours(TimeslotDTO dto){
-        DayOfWeek day = dto.getStart().getDayOfWeek();
+    public void checkWorkingHours(Timeslot timeslot){
+        DayOfWeek day = timeslot.getStart().getDayOfWeek();
 
         LocalTime startTimeWorkingDays = LocalTime.of(18, 0, 0);
         LocalTime endTimeWorkingDays = LocalTime.of(23, 0, 0);
@@ -103,12 +186,12 @@ public class TimeslotService {
         LocalTime endTimeWeekend = LocalTime.of(22, 0, 0);
 
         if(day.equals(DayOfWeek.SATURDAY) || day.equals(DayOfWeek.SUNDAY)){
-            if (dto.getStart().toLocalTime().isBefore(startTimeWeekend) || dto.getEnd().toLocalTime().isAfter(endTimeWeekend)){
+            if (timeslot.getStart().toLocalTime().isBefore(startTimeWeekend) || timeslot.getEnd().toLocalTime().isAfter(endTimeWeekend)){
                 throw new InvalidTimeslotDateTimeException
                         (String.format("Timeslot chosen time not in weekend working hours."));
             }
         }else{
-            if (dto.getStart().toLocalTime().isBefore(startTimeWorkingDays) || dto.getEnd().toLocalTime().isAfter(endTimeWorkingDays)){
+            if (timeslot.getStart().toLocalTime().isBefore(startTimeWorkingDays) || timeslot.getEnd().toLocalTime().isAfter(endTimeWorkingDays)){
                 throw new InvalidTimeslotDateTimeException
                         (String.format("Timeslot chosen time not in working days working hours."));
             }

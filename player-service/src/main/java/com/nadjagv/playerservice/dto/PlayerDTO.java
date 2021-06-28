@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Value;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Value
 @Builder
@@ -17,7 +18,7 @@ public class PlayerDTO {
 
     String lastName;
 
-    LocalDate dateOfBirth;
+    Date dateOfBirth;
 
     PaymentType paymentType;
 

@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CourtRepository extends JpaRepository<Court, Long> {
+    Court findOneByName(String name);
+
+    boolean existsByName(String name);
 }
