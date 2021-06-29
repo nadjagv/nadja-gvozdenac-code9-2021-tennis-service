@@ -18,9 +18,5 @@ public class PlayerDTO {
 
     String lastName;
 
-    Date dateOfBirth;
-
-    PaymentType paymentType;
-
-    Boolean paid;
+    LocalDate dateOfBirth;
 }

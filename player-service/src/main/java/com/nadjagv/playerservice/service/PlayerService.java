@@ -49,12 +49,10 @@ public class PlayerService {
                     .dateOfBirth(player.getDateOfBirth())
                     .firstName(player.getFirstName())
                     .lastName(player.getLastName())
-                    .paymentType(player.getPaymentType())
-                    .paid(player.getPaid())
                     .build();
             playerRepository.save(updated);
          } else {
-            throw new NotFoundException(String.format("Player not in database.", player.getEmail()));
+            throw new NotFoundException(String.format("Player not in database."));
         }
     }
 

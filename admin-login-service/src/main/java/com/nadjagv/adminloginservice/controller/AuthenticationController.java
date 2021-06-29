@@ -35,14 +35,14 @@ public class AuthenticationController {
 //    private WebSecurityConfig ws;
 
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<AdminTokenState> createAuthenticationToken
-            (HttpServletResponse response) throws Exception {
+            (@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response) throws Exception {
 
         //System.out.println(ws.passwordEncoder().encode(authenticationRequest.getPassword()));
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                "admin@gmail.com", "admin"));
+                authenticationRequest.getEmail(), authenticationRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

@@ -29,13 +29,8 @@ public class Player {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
-
-    @Column(name = "payment_type")
-    private PaymentType paymentType;
-    @Column
-    private Boolean paid;
 
 }
 
