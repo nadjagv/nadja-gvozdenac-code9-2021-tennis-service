@@ -13,7 +13,7 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="email" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="first_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
@@ -32,6 +32,18 @@
             </column>
 
         </createTable>
+    </changeSet>
+
+    <changeSet  author="Nadja Gvozdenac"  id="insertData">
+        <insert  tableName="players">
+            <column  name="email"  value="novak@gmail.com"/>
+            <!-- password: admin -->
+            <column  name="first_name"  value="Novak"/>
+            <column  name="last_name"  value="Djokovic"/>
+            <column  name="date_of_birth"  value="1987-05-22"/>
+            <column  name="payment_type"  value="0"/>
+            <column  name="paid"  value="false"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

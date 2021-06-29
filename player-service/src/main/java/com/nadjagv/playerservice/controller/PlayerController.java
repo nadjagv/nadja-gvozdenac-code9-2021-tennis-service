@@ -7,6 +7,7 @@ import com.nadjagv.playerservice.dto.PlayerMapper;
 import com.nadjagv.playerservice.service.PlayerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,11 +41,13 @@ public class PlayerController implements PlayerClient {
     }
 
     @PutMapping
+    //@PreAuthorize("hasRole('ADMIN')")
     public void updatePlayer(@RequestBody final PlayerDTO playerDTO) {
         playerService.updatePlayer(playerMapper.dtoToEntity(playerDTO));
     }
 
     @DeleteMapping("/{id}")
+    //@PreAuthorize("hasRole('ADMIN')")
     public void deletePlayer(@PathVariable("id") final Long id) {
         playerService.deletePlayerById(id);
     }

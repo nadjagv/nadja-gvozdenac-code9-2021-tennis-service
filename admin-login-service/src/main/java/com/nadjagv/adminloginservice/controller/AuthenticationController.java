@@ -14,10 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,14 +35,14 @@ public class AuthenticationController {
 //    private WebSecurityConfig ws;
 
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public ResponseEntity<AdminTokenState> createAuthenticationToken
-            (@RequestBody JwtAuthenticationRequest authenticationRequest, HttpServletResponse response) throws Exception {
+            (HttpServletResponse response) throws Exception {
 
         //System.out.println(ws.passwordEncoder().encode(authenticationRequest.getPassword()));
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                authenticationRequest.getEmail(), authenticationRequest.getPassword()));
+                "admin@gmail.com", "admin"));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 

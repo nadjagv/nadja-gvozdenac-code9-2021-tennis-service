@@ -5,31 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/controller/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/domain/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/dto/AdminTokenState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/dto/JwtAuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/exception/ResourceConflictException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/security/auth/RestAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/security/auth/TokenAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/security/auth/TokenBasedAuthentication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/service/RoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/util/TokenUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/dto/TimeslotPaymentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-login-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-login-service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/domain/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/AdminRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/repository/AdminRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master-admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/db/changelog/db.changelog-master.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nadjagv/adminloginservice/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/player-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/player-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/PlayerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/PlayerServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/domain/PaymentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/domain/PaymentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/src/main/resources/db/changelog/db.changelog-master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/resources/db/changelog/db.changelog-master-player.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/target/classes/db/changelog/db.changelog-master.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/target/surefire-reports/TEST-com.nadjagv.playerservice.PlayerServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/target/surefire-reports/TEST-com.nadjagv.playerservice.PlayerServiceApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../player-service/target/surefire-reports/com.nadjagv.playerservice.PlayerServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/target/surefire-reports/com.nadjagv.playerservice.PlayerServiceApplicationTests.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

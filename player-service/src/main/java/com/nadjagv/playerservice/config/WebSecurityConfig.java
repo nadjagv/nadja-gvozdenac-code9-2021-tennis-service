@@ -1,5 +1,6 @@
-package com.nadjagv.adminloginservice.config;
+package com.nadjagv.playerservice.config;
 
+import com.nadjagv.adminloginservice.repository.AdminRepository;
 import com.nadjagv.adminloginservice.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
@@ -28,75 +29,41 @@ import com.nadjagv.adminloginservice.util.TokenUtils;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+//	@Override
+//	protected void configure(HttpSecurity security) throws Exception
+//	{
+//		security.httpBasic().disable();
+//	}
+
+	@Bean RestAuthenticationEntryPoint restAuthenticationEntryPoint(){
+		return new RestAuthenticationEntryPoint();
 	}
-	
-	@Autowired
-	private AdminService adminService;
-	
-	@Autowired
-	private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
-	
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
+
+	@Bean TokenUtils tokenUtils(){
+		return new TokenUtils();
 	}
-	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.userDetailsService(adminService)
-			
-			.passwordEncoder(passwordEncoder());
+
+	@Bean AdminService adminService(){
+		return new AdminService();
 	}
-	
-	@Autowired
-	private TokenUtils tokenUtils;
-	
+
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			
-			.exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint).and()
-			
-			.authorizeRequests().antMatchers("/auth/**").permitAll()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 
-								.antMatchers("/**").permitAll()
-			
-			.anyRequest().authenticated().and()
-			 
-			.cors().and()
-			
-			.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, adminService), BasicAuthenticationFilter.class);
-		
+				.exceptionHandling().authenticationEntryPoint(restAuthenticationEntryPoint()).and()
+
+				.authorizeRequests().antMatchers("/api/players/**").permitAll()
+
+									.antMatchers("/**").permitAll()
+
+				.anyRequest().authenticated().and()
+
+				.cors().and()
+
+				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils(), adminService()), BasicAuthenticationFilter.class);
+
 		http.csrf().disable();
 	}
-	
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers(HttpMethod.POST, "/auth/login");
-		
-		web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "favicon.ico", "/**/*.html",
-				"/**/*.css", "/**/*.js");
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
