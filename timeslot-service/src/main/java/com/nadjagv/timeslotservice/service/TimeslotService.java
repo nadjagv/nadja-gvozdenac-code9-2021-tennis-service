@@ -64,24 +64,13 @@ public class TimeslotService {
         Timeslot existing = timeslotRepository.getById(timeslot.getId());
         if (existing != null) {
 
-            checkPlayer(timeslot);
-            //check date in the future, start before end
-            checkDateValidity(timeslot);
-            //check timeslot duration
-            checkTimeslotDuration(timeslot);
-            //check if overlaps with another timeslot on the court
-            checkTimeslotsOverlap(timeslot);
-            //check if timeslot is in working hours
-            checkWorkingHours(timeslot);
-
-            Timeslot updated = Timeslot.builder()
-                    .id(existing.getId())
-                    .courtId(timeslot.getCourtId())
-                    .playerId(timeslot.getPlayerId())
-                    .end(timeslot.getEnd())
-                    .start(timeslot.getStart())
-                    .build();
-            timeslotRepository.save(updated);
+            try {
+                deleteTimeslotById(timeslot.getId());
+                reserveTimeslot(timeslot);
+            }catch(Exception e){
+                timeslotRepository.save(existing);
+                throw new InvalidTimeslotDateTimeException("Unable to update.");
+            }
         } else {
             throw new NotFoundException("Cannot update timeslot that is not in database.");
         }
@@ -129,12 +118,24 @@ public class TimeslotService {
         //check if timeslot is in working hours
         checkWorkingHours(timeslot);
         //check start and end date
-        Timeslot newTimeslot = Timeslot.builder()
-                .courtId(timeslot.getCourtId())
-                .playerId(timeslot.getPlayerId())
-                .start(timeslot.getStart())
-                .end(timeslot.getEnd())
-                .build();
+        Timeslot newTimeslot;
+        if (timeslot.getId() != null){
+             newTimeslot = Timeslot.builder()
+                    .courtId(timeslot.getCourtId())
+                    .playerId(timeslot.getPlayerId())
+                    .start(timeslot.getStart())
+                    .end(timeslot.getEnd())
+                    .build();
+        }else{
+            newTimeslot = Timeslot.builder()
+                    .id(timeslot.getId())
+                    .courtId(timeslot.getCourtId())
+                    .playerId(timeslot.getPlayerId())
+                    .start(timeslot.getStart())
+                    .end(timeslot.getEnd())
+                    .build();
+        }
+
         timeslotRepository.save(newTimeslot);
 
         TimeslotReservationMessage timeslotReservationMessage = MessageFactory.createTimeslotReservationMessage(newTimeslot);

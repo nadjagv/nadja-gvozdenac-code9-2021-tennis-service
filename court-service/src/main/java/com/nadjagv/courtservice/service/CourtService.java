@@ -38,9 +38,12 @@ public class CourtService {
         if (existing != null) {
 
             Court foundByName = courtRepository.findOneByName(court.getName());
-            if (foundByName.getId() != existing.getId()){
-                throw new AlreadyExistsException(String.format("Court with name '%s' already exists", court.getName()));
+            if (foundByName !=null){
+                if (foundByName.getId() != existing.getId()){
+                    throw new AlreadyExistsException(String.format("Court with name '%s' already exists", court.getName()));
+                }
             }
+
 
             Court updated = Court.builder()
                     .id(existing.getId())

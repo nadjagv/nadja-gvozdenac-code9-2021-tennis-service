@@ -39,10 +39,13 @@ public class PlayerService {
         Player existing = playerRepository.getById(player.getId());
         if (existing!= null) {
             Player byEmail = playerRepository.findByEmail(player.getEmail());
-            if (byEmail.getId() != existing.getId()){
-                throw new AlreadyExistsException(String.format("Player with email '%s' already exists", player.getEmail()));
+            if(byEmail != null){
+                if (byEmail.getId() != existing.getId()){
+                    throw new AlreadyExistsException(String.format("Player with email '%s' already exists", player.getEmail()));
 
+                }
             }
+
             Player updated = Player.builder()
                     .id(existing.getId())
                     .email(player.getEmail())
