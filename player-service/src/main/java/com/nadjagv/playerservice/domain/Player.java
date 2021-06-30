@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "players")
@@ -23,20 +24,13 @@ public class Player {
     @Column
     private String email;
 
-    @Column
+    @Column(name = "first_name")
     private String firstName;
-    @Column
+    @Column(name = "last_name")
     private String lastName;
-    @Column
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column
-    private Integer totalTimeslots;
-
-    @Column
-    private PaymentType paymentType;
-    @Column
-    private Boolean paid;
 
 }
 

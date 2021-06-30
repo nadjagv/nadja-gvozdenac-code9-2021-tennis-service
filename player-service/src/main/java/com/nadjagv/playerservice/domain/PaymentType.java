@@ -1,5 +1,5 @@
 package com.nadjagv.playerservice.domain;
 
 public enum PaymentType {
-    CASH, CARD
+    NONE, CASH, CARD
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.nadjagv.courtservice.CourtServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.204 s - in com.nadjagv.courtservice.CourtServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.634 s - in com.nadjagv.courtservice.CourtServiceApplicationTests
