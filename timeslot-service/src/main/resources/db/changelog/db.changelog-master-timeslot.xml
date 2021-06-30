@@ -28,4 +28,13 @@
         </createTable>
     </changeSet>
 
+    <changeSet  author="Nadja Gvozdenac"  id="insertData">
+        <insert  tableName="timeslots">
+            <column  name="start_time"  value="2021-10-30T19:30:00"/>
+            <column  name="end_time"  value="2021-10-30T21:00:00"/>
+            <column  name="court_id"  value="1"/>
+            <column  name="player_id"  value="1"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>

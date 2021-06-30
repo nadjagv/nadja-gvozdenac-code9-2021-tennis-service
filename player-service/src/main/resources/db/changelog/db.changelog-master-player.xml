@@ -31,7 +31,6 @@
     <changeSet  author="Nadja Gvozdenac"  id="insertData">
         <insert  tableName="players">
             <column  name="email"  value="novak@gmail.com"/>
-            <!-- password: admin -->
             <column  name="first_name"  value="Novak"/>
             <column  name="last_name"  value="Djokovic"/>
             <column  name="date_of_birth"  value="1987-05-22"/>
