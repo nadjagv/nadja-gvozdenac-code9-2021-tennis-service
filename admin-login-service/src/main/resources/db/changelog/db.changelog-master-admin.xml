@@ -1,0 +1,59 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Nadja Gvozdenac" id="createTable">
+        <createTable tableName="admins">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Nadja Gvozdenac" id="createTableRoles">
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+        </createTable>
+
+
+    </changeSet>
+
+    <changeSet  author="Nadja Gvozdenac"  id="insertData">
+        <insert  tableName="admins">
+            <column  name="email"  value="admin@gmail.com"/>
+            <column  name="password"  value="$2a$10$JdDk95gSQ8jWXmy1S02t8u/.LMIpLo4ifFiidKsscFkR1k1g38EjG"/>
+            <column  name="enabled"  value="true"/>
+            <column  name="role_id"  value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  author="Nadja Gvozdenac"  id="insertDataRoles">
+        <insert  tableName="roles">
+            <column  name="name"  value="ADMIN"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

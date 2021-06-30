@@ -22,7 +22,7 @@ public class PlayerService {
                 .orElseThrow(() -> new NotFoundException("Player not found."));
     }
 
-    List<Player> findAll() {
+    public List<Player> findAll() {
         return playerRepository.findAll();
     }
 
@@ -36,21 +36,23 @@ public class PlayerService {
     }
 
     public void updatePlayer(Player player) {
-        Player existing = playerRepository.findByEmail(player.getEmail());
+        Player existing = playerRepository.getById(player.getId());
         if (existing!= null) {
+            Player byEmail = playerRepository.findByEmail(player.getEmail());
+            if (byEmail.getId() != existing.getId()){
+                throw new AlreadyExistsException(String.format("Player with email '%s' already exists", player.getEmail()));
+
+            }
             Player updated = Player.builder()
                     .id(existing.getId())
                     .email(player.getEmail())
                     .dateOfBirth(player.getDateOfBirth())
                     .firstName(player.getFirstName())
                     .lastName(player.getLastName())
-                    .paymentType(player.getPaymentType())
-                    .paid(player.getPaid())
-                    .totalTimeslots(player.getTotalTimeslots())
                     .build();
             playerRepository.save(updated);
          } else {
-            throw new AlreadyExistsException(String.format("Player with email '%s' already exists", player.getEmail()));
+            throw new NotFoundException(String.format("Player not in database."));
         }
     }
 
@@ -59,6 +61,15 @@ public class PlayerService {
             playerRepository.deleteByEmail(email);
         } else {
             throw new AlreadyExistsException(String.format("Player with email '%s' not exists", email));
+        }
+    }
+
+    public void deletePlayerById(Long id) {
+        Player player = playerRepository.getById(id);
+        if (player != null) {
+            playerRepository.deleteById(id);
+        } else {
+            throw new AlreadyExistsException(String.format("Player with id '%d' does not exist", id));
         }
     }
 }
