@@ -31,6 +31,15 @@ public class PaymentService {
             .decoder(new GsonDecoder())
             .target(PlayerClient.class, "http://localhost:8081");
 
+    public List<Payment> findAll(){
+        return paymentRepository.findAll();
+    }
+
+    public Payment findPaymentById(Long id){
+        return paymentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Payment not found."));
+
+    }
 
     public void pay(Payment payment){
 

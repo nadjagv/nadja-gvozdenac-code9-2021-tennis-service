@@ -115,6 +115,7 @@
     <orderEntry type="library" name="Maven: com.nadjagv:player-service:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: io.github.openfeign:feign-core:11.2" level="project" />
     <orderEntry type="library" name="Maven: com.nadjagv:court-service:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.nadjagv:payment-service:0.0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: io.github.openfeign:feign-gson:10.11" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.7" level="project" />
   </component>

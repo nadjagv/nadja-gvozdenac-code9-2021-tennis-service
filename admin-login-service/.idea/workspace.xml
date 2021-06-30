@@ -5,39 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../payment-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/PaymentServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/controller/PaymentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/domain/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/domain/PaymentType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/exception/AlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/paymentStrategy/PaymentCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/paymentStrategy/PaymentCash.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/paymentStrategy/PaymentInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/repository/PaymentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/service/PaymentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/util/Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/resources/db/changelog/db.changelog-master-payment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/test/java/com/nadjagv/paymentservice/PaymentServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/player-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/player-service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/config/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/src/main/java/com/nadjagv/playerservice/service/PlayerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/target/surefire-reports/TEST-com.nadjagv.playerservice.PlayerServiceApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/target/surefire-reports/TEST-com.nadjagv.playerservice.PlayerServiceApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../player-service/target/surefire-reports/com.nadjagv.playerservice.PlayerServiceApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../player-service/target/surefire-reports/com.nadjagv.playerservice.PlayerServiceApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/dto/TimeslotPaymentDTO.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/client/PaymentClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/domain/CreditCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/CreditCardMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentAllDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/controller/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../timeslot-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/service/TimeslotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/service/TimeslotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../timeslot-service/timeslot-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/timeslot-service.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
