@@ -13,6 +13,9 @@ import com.nadjagv.timeslotservice.exception.AlreadyExistsException;
 import com.nadjagv.timeslotservice.exception.InvalidTimeslotDateTimeException;
 import com.nadjagv.timeslotservice.exception.NotFoundException;
 import com.nadjagv.timeslotservice.exception.PlayerAlreadyReservedException;
+import com.nadjagv.timeslotservice.messaging.MessageFactory;
+import com.nadjagv.timeslotservice.messaging.MessageService;
+import com.nadjagv.timeslotservice.messaging.TimeslotReservationMessage;
 import com.nadjagv.timeslotservice.repository.TimeslotRepository;
 
 import feign.Feign;
@@ -30,6 +33,8 @@ import java.util.concurrent.TimeUnit;
 public class TimeslotService {
 
     private final TimeslotRepository timeslotRepository;
+    private final MessageService messageService;
+
     private final PlayerClient playerClient = Feign.builder()
             .encoder(new GsonEncoder())
             .decoder(new GsonDecoder())
@@ -131,6 +136,9 @@ public class TimeslotService {
                 .end(timeslot.getEnd())
                 .build();
         timeslotRepository.save(newTimeslot);
+
+        TimeslotReservationMessage timeslotReservationMessage = MessageFactory.createTimeslotReservationMessage(newTimeslot);
+        messageService.sendMessageTimeslotTopic(timeslotReservationMessage);
     }
 
     public void checkPlayer(Timeslot timeslot){

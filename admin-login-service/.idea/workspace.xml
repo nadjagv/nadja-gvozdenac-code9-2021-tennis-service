@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/client/PaymentClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/domain/CreditCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/CreditCardMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentAllDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/dto/PaymentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../payment-service/src/main/java/com/nadjagv/paymentservice/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/service/TimeslotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/src/main/java/com/nadjagv/timeslotservice/service/TimeslotService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../timeslot-service/timeslot-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../timeslot-service/timeslot-service.iml" afterDir="false" />
-    </list>
+    <list default="true" id="f16af188-d091-4962-8656-d917f00ab63e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
